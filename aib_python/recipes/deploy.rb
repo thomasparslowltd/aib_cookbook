@@ -7,6 +7,9 @@ node[:deploy].each do |application, deploy|
     Chef::Log.info("Skipping python deploy for application #{application} as it is not a python app")
     next
   end
+
+  Chef::Log.info("Deploying to #{deploy[:deploy_to]}")
+  
   
   include_recipe "python"
   
