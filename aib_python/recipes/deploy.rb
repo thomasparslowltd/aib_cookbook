@@ -1,5 +1,7 @@
 include_recipe 'deploy'
 
+Chef::Log.info("aib_python: My deploy stuff")
+
 node[:deploy].each do |application, deploy|
   
   Chef::Log.info("Stuff: #{deploy[:application_type]}")
@@ -7,6 +9,8 @@ node[:deploy].each do |application, deploy|
     Chef::Log.info("Skipping python deploy for application #{application} as it is not a python app")
     next
   end
+  
+  include_recipe "python"
   
   opsworks_deploy_dir do
     user deploy[:user]
