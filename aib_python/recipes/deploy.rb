@@ -1,6 +1,6 @@
 include_recipe 'deploy'
 
-Chef::Log.info("aib_python: My deploy stuff")
+Chef::Log.info("aib_python:deploy My deploy stuff")
 
 node[:deploy].each do |application, deploy|
   
